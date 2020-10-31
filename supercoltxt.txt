@@ -1,0 +1,35 @@
+p = ProxySpace.push(s.boot);
+
+p.makeTempoClock(200/120);
+p.quant = 4;
+
+p.fadeTime = 3;
+________________________________________________________________________________________________
+
+~primerKick5 = { Pan2.ar(Saw.ar(50)*Decay.kr(Demand.kr(Impulse.kr(4),0,Dseq([0,1,1,0],inf))*Impulse.kr(4),0.6))};
+~primerKick8 = { Pan2.ar(Saw.ar(60)*Decay.kr(Demand.kr(Impulse.kr(4),0,Dseq([0,0,0,1],inf))*Impulse.kr(4),0.6))};
+
+~primerKick9 = { Pan2.ar(Saw.ar(65)*Decay.kr(Demand.kr(Impulse.kr(4),0,Dseq([1,0,0,0],inf))*Impulse.kr(4),0.6))};
+
+
+~primerKick6 = { Pan2.ar(Pulse.ar(40)*Decay.kr(Demand.kr(Impulse.kr(4),0,Dseq([1,1,1,1],inf))*Impulse.kr(2),0.6))};
+~primerKick7 = { Pan2.ar(SinOsc.ar(60)*Decay.kr(Demand.kr(Impulse.kr(4),0,Dseq([1,1,1,1],inf))*Impulse.kr(2),0.9))};
+
+
+~primerKick5.play
+~primerKick5.free
+
+~primerKick6.play
+~primerKick6.free
+
+~primerKick7.play
+~primerKick7.free
+
+~primerKick9.play
+~primerKick9.free
+
+~punch = ~primerKick5+ ~primerKick7 + ~primerKick8
+~punch.free
+~punch.play
+
+//----lo que se escucha es ~punch mas ~primerKick9  
